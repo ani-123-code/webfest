@@ -1,0 +1,35 @@
+{
+  "name": "eco-dispose-monorepo",
+  "version": "1.0.0",
+  "description": "Eco-Dispose website - Full-stack monorepo with React frontend and Node.js backend",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "project"
+  ],
+  "scripts": {
+    "start": "echo 'Please set Root Directory in Railway: backend or project' && exit 1",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd project && npm start",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd project && npm run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build:backend": "cd backend && npm install",
+    "build:frontend": "cd project && npm run build",
+    "build": "npm run build:backend && npm run build:frontend",
+    "install:all": "npm install && cd backend && npm install && cd ../project && npm install",
+    "clean": "rm -rf backend/node_modules project/node_modules backend/dist project/dist"
+  },
+  "keywords": [
+    "e-waste",
+    "recycling",
+    "sustainability",
+    "monorepo"
+  ],
+  "author": "Eco-Dispose Team",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+
