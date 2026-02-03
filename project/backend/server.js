@@ -108,6 +108,9 @@ async function getAccessToken() {
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true, // Use SSL/TLS for port 465
   auth: {
     type: 'OAuth2',
     user: process.env.GMAIL_USER,
@@ -116,6 +119,21 @@ const transporter = nodemailer.createTransport({
     refreshToken: process.env.GMAIL_REFRESH_TOKEN,
     accessToken: getAccessToken,
   },
+  connectionTimeout: 15000, // 15 seconds
+  greetingTimeout: 10000, // 10 seconds
+  socketTimeout: 10000, // 10 seconds
+  tls: {
+    rejectUnauthorized: false
+  }
+});
+
+// Verify email service connection
+transporter.verify(function (error, success) {
+  if (error) {
+    console.error('❌ Email service connection error:', error.message);
+  } else {
+    console.log('✅ Email service is ready to send messages');
+  }
 });
 
 app.get('/', (req, res) => {
