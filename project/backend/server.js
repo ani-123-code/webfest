@@ -3,8 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
+const { gmail_v1 } = require('googleapis');
 const {
   getAdminNotificationTemplate,
   getClientConfirmationTemplate,
@@ -106,35 +106,64 @@ async function getAccessToken() {
   }
 }
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true, // Use SSL/TLS for port 465
-  auth: {
-    type: 'OAuth2',
-    user: process.env.GMAIL_USER,
-    clientId: process.env.GMAIL_CLIENT_ID,
-    clientSecret: process.env.GMAIL_CLIENT_SECRET,
-    refreshToken: process.env.GMAIL_REFRESH_TOKEN,
-    accessToken: getAccessToken,
-  },
-  connectionTimeout: 15000, // 15 seconds
-  greetingTimeout: 10000, // 10 seconds
-  socketTimeout: 10000, // 10 seconds
-  tls: {
-    rejectUnauthorized: false
-  }
-});
+// Initialize Gmail API client (uses HTTPS REST API)
+const gmail = google.gmail({ version: 'v1', auth: oauth2Client });
 
-// Verify email service connection
-transporter.verify(function (error, success) {
-  if (error) {
-    console.error('❌ Email service connection error:', error.message);
-  } else {
-    console.log('✅ Email service is ready to send messages');
+// Function to send email using Gmail API (HTTPS)
+async function sendEmailViaGmailAPI(to, subject, html) {
+  try {
+    // Handle multiple recipients (comma-separated)
+    const recipients = Array.isArray(to) ? to.join(', ') : to;
+    
+    // Create email message in RFC 2822 format
+    const message = [
+      `To: ${recipients}`,
+      `From: ${process.env.GMAIL_USER}`,
+      `Subject: ${subject}`,
+      `Content-Type: text/html; charset=utf-8`,
+      ``,
+      html
+    ].join('\n');
+
+    // Encode message in base64url format
+    const encodedMessage = Buffer.from(message)
+      .toString('base64')
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
+
+    // Send email via Gmail API (HTTPS)
+    const response = await gmail.users.messages.send({
+      userId: 'me',
+      requestBody: {
+        raw: encodedMessage
+      }
+    });
+
+    console.log('✅ Email sent successfully via Gmail API:', response.data.id);
+    return response.data;
+  } catch (error) {
+    console.error('❌ Error sending email via Gmail API:', error.message);
+    if (error.response) {
+      console.error('Error details:', error.response.data);
+    }
+    throw error;
   }
-});
+}
+
+// Verify Gmail API connection
+async function verifyGmailConnection() {
+  try {
+    const response = await gmail.users.getProfile({ userId: 'me' });
+    console.log('✅ Gmail API connected successfully');
+    console.log(`📧 Email: ${response.data.emailAddress}`);
+  } catch (error) {
+    console.error('❌ Gmail API connection error:', error.message);
+  }
+}
+
+// Verify on startup
+verifyGmailConnection();
 
 app.get('/', (req, res) => {
   res.json({
@@ -194,9 +223,26 @@ app.post('/', async (req, res) => {
       html: getClientConfirmationTemplate({ name })
     };
 
+    // Send emails via Gmail API (HTTPS)
     await Promise.all([
-      transporter.sendMail(adminMailOptions),
-      transporter.sendMail(clientMailOptions)
+      sendEmailViaGmailAPI(
+        'team@eco-dispose.com,aniketh0701@gmail.com',
+        'New User Registration - Eco-Dispose',
+        getAdminNotificationTemplate({
+          company,
+          designation,
+          name,
+          address,
+          email,
+          phone,
+          description
+        })
+      ),
+      sendEmailViaGmailAPI(
+        email,
+        'Registration Confirmation - Eco-Dispose',
+        getClientConfirmationTemplate({ name })
+      )
     ]);
 
     res.status(201).json({ message: "Registration successful! Check your email for confirmation." });
@@ -232,24 +278,18 @@ app.post('/addSubscribers', async (req, res) => {
     const subscriber = new Subscriber({ email: normalizedEmail });
     await subscriber.save();
 
-    // Send emails
-    const adminMailOptions = {
-      from: `"Eco-Dispose" <${process.env.GMAIL_USER}>`,
-      to: 'team@eco-dispose.com',
-      subject: 'New Newsletter Subscription - Eco-Dispose',
-      html: getSubscriberNotificationTemplate({ email: normalizedEmail })
-    };
-
-    const subscriberMailOptions = {
-      from: `"Eco-Dispose" <${process.env.GMAIL_USER}>`,
-      to: normalizedEmail,
-      subject: 'Welcome to Eco-Dispose Newsletter!',
-      html: getSubscriberWelcomeTemplate({ email: normalizedEmail })
-    };
-
+    // Send emails via Gmail API (HTTPS)
     await Promise.all([
-      transporter.sendMail(adminMailOptions),
-      transporter.sendMail(subscriberMailOptions)
+      sendEmailViaGmailAPI(
+        'team@eco-dispose.com',
+        'New Newsletter Subscription - Eco-Dispose',
+        getSubscriberNotificationTemplate({ email: normalizedEmail })
+      ),
+      sendEmailViaGmailAPI(
+        normalizedEmail,
+        'Welcome to Eco-Dispose Newsletter!',
+        getSubscriberWelcomeTemplate({ email: normalizedEmail })
+      )
     ]);
 
     res.status(200).json({
@@ -296,33 +336,47 @@ app.post('/requestPickup', async (req, res) => {
 
     await pickupRequest.save();
 
-    // Send emails
-    const adminMailOptions = {
-      from: `"Eco-Dispose" <${process.env.GMAIL_USER}>`,
-      to: 'team@eco-dispose.com',
-      subject: `New E-Waste Pickup Request - ${userType === 'corporate' ? 'Corporate' : 'Individual'}`,
-      html: getPickupRequestAdminTemplate({
-        userType,
-        company,
-        designation,
-        name,
-        address,
-        email,
-        phone,
-        description
-      })
-    };
-
-    const clientMailOptions = {
-      from: `"Eco-Dispose" <${process.env.GMAIL_USER}>`,
-      to: email,
-      subject: 'Pickup Request Confirmation - Eco-Dispose',
-      html: getPickupRequestConfirmationTemplate({ name })
-    };
-
+    // Send emails via Gmail API (HTTPS)
     await Promise.all([
-      transporter.sendMail(adminMailOptions),
-      transporter.sendMail(clientMailOptions)
+      sendEmailViaGmailAPI(
+        'team@eco-dispose.com',
+        `New E-Waste Pickup Request - ${userType === 'corporate' ? 'Corporate' : 'Individual'}`,
+        getPickupRequestAdminTemplate({
+          userType,
+          company,
+          designation,
+          name,
+          address,
+          email,
+          phone,
+          description
+        })
+      ),
+      sendEmailViaGmailAPI(
+        email,
+        'Pickup Request Confirmation - Eco-Dispose',
+        getPickupRequestConfirmationTemplate({ name })
+      )
+    ]);
+    await Promise.all([
+      sendEmailViaGmailAPI(
+        'team@eco-dispose.com,aniketh0701@gmail.com',
+        'New User Registration - Eco-Dispose',
+        getAdminNotificationTemplate({
+          company,
+          designation,
+          name,
+          address,
+          email,
+          phone,
+          description
+        })
+      ),
+      sendEmailViaGmailAPI(
+        email,
+        'Registration Confirmation - Eco-Dispose',
+        getClientConfirmationTemplate({ name })
+      )
     ]);
 
     res.status(200).json({
