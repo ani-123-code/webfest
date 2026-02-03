@@ -406,15 +406,19 @@ function ProductModal({ product, isOpen, onClose }: { product: Product | null; i
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-gray-200">
-            <a
-              href={product.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex-1 px-6 py-3 ${colorClasses.bg} text-white rounded-lg font-semibold ${colorClasses.hover} transition-colors flex items-center justify-center gap-2`}
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                alert('Coming Soon! This website is under development.');
+              }}
+              // href={product.website}
+              // target="_blank"
+              // rel="noopener noreferrer"
+              className={`flex-1 px-6 py-3 ${colorClasses.bg} text-white rounded-lg font-semibold ${colorClasses.hover} transition-colors flex items-center justify-center gap-2 cursor-pointer`}
             >
               Visit Website
               <ExternalLink className="h-5 w-5" />
-            </a>
+            </button>
             <button
               onClick={onClose}
               className="flex-1 px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
@@ -517,15 +521,19 @@ export default function Products() {
                         Learn More
                         <ArrowRight className="h-4 w-4" />
                       </button>
-                      <a
-                        href={product.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`w-full px-4 py-2.5 border-2 ${colorClasses.border} ${colorClasses.icon} rounded-lg font-semibold hover:bg-green-50 transition-colors flex items-center justify-center gap-2`}
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert('Coming Soon! This website is under development.');
+                        }}
+                        // href={product.website}
+                        // target="_blank"
+                        // rel="noopener noreferrer"
+                        className={`w-full px-4 py-2.5 border-2 ${colorClasses.border} ${colorClasses.icon} rounded-lg font-semibold hover:bg-green-50 transition-colors flex items-center justify-center gap-2 cursor-pointer`}
                       >
                         Visit Website
                         <ExternalLink className="h-4 w-4" />
-                      </a>
+                      </button>
                     </div>
                   </div>
                   <div className="absolute -bottom-1 left-5 right-5 h-1 bg-gradient-to-r from-green-500/30 via-emerald-500/80 to-green-500/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center rounded-full"></div>
