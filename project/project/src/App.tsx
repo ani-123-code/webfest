@@ -11,6 +11,7 @@ import EPRPolicy from './pages/EPRPolicy';
 import Collaboration from './pages/Collaboration';
 import Products from './pages/Products';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopButton from './components/ScrollToTopButton';
 import Chatbot from './components/Chatbot';
 
 function App() {
@@ -138,6 +139,7 @@ function App() {
         </Routes>
 
         <Chatbot />
+        <ScrollToTopButton />
       </div>
     </Router>
   );
