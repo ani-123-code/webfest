@@ -409,7 +409,7 @@ function ProductModal({ product, isOpen, onClose }: { product: Product | null; i
             <button
               onClick={(e) => {
                 e.preventDefault();
-                alert('Coming Soon! This website is under development.');
+                setShowComingSoon(true);
               }}
               // href={product.website}
               // target="_blank"
@@ -435,6 +435,7 @@ function ProductModal({ product, isOpen, onClose }: { product: Product | null; i
 export default function Products() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showComingSoon, setShowComingSoon] = useState(false);
 
   return (
     <div className="min-h-screen bg-white pt-20">
@@ -524,7 +525,7 @@ export default function Products() {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
-                          alert('Coming Soon! This website is under development.');
+                          setShowComingSoon(true);
                         }}
                         // href={product.website}
                         // target="_blank"
@@ -553,6 +554,35 @@ export default function Products() {
           setSelectedProduct(null);
         }}
       />
+
+      {/* Coming Soon Popup */}
+      {showComingSoon && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-in fade-in zoom-in duration-300">
+            <button
+              onClick={() => setShowComingSoon(false)}
+              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
+            >
+              <X className="h-5 w-5 text-gray-500" />
+            </button>
+            <div className="text-center">
+              <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+                <Sparkles className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Coming Soon</h3>
+              <p className="text-gray-600 mb-6">
+                We're working hard to bring you an amazing experience. Stay tuned!
+              </p>
+              <button
+                onClick={() => setShowComingSoon(false)}
+                className="px-6 py-2.5 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
+              >
+                Got it
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-green-950 via-green-900 to-green-950 relative overflow-hidden">

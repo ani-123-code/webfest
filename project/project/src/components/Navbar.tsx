@@ -65,7 +65,9 @@ export default function Navbar() {
               to={item.href}
               className={`text-sm font-semibold leading-6 ${
                 location.pathname === item.href
-                  ? 'text-green-600'
+                  ? item.name === 'Products' 
+                    ? 'text-green-600 bg-green-50 px-3 py-1.5 rounded-lg font-bold'
+                    : 'text-green-600'
                   : 'text-gray-900 hover:text-green-600'
               }`}
             >
@@ -126,16 +128,18 @@ export default function Navbar() {
             <Phone className="h-4 w-4 transition-transform group-hover:rotate-12" />
             <span>Contact Us</span>
           </a>
-          {
-            location.pathname==='/about' || location.pathname==='/stories' || location.pathname==='/epr-policy' || location.pathname==='/collaboration' || location.pathname==='/products' ? 
-            <div className="flex items-center gap-2 px-5 py-2.5 text-white rounded-full font-semibold shadow-sm hover:bg-green-500 transition-all hover:shadow-md active:shadow-sm"></div>:
-            <a
-              href="#request-pickup"
-              className="flex items-center gap-2 px-5 py-2.5 bg-green-600 text-white rounded-full font-semibold shadow-sm hover:bg-green-500 transition-all hover:shadow-md active:shadow-sm"
-            >
-              <span className='flex items-center justify-center'>Request Pickup</span>
-            </a>
-          }
+          <a
+            href="#request-pickup"
+            className="flex items-center gap-2 px-5 py-2.5 bg-green-600 text-white rounded-full font-semibold shadow-sm hover:bg-green-500 transition-all hover:shadow-md active:shadow-sm"
+          >
+            <span className='flex items-center justify-center'>Request Pickup</span>
+          </a>
+          <a
+            href="mailto:team@eco-dispose.com?subject=Request for Quote"
+            className="flex items-center gap-2 px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold shadow-sm hover:bg-emerald-500 transition-all hover:shadow-md active:shadow-sm"
+          >
+            <span className='flex items-center justify-center'>Request for Quote</span>
+          </a>
         </div>
       </nav>
       
@@ -177,7 +181,9 @@ export default function Navbar() {
                       onClick={() => setMobileMenuOpen(false)}
                       className={`block w-full px-6 py-3 sm:py-2 text-base sm:text-sm font-semibold border-b border-gray-100 hover:bg-gray-50 transition-colors ${
                         location.pathname === item.href 
-                          ? 'text-green-600 bg-green-50 border-l-4 border-l-green-600' 
+                          ? item.name === 'Products'
+                            ? 'text-green-600 bg-green-100 border-l-4 border-l-green-600 font-bold'
+                            : 'text-green-600 bg-green-50 border-l-4 border-l-green-600'
                           : 'text-gray-900'
                       }`}
                     >
@@ -230,22 +236,31 @@ export default function Navbar() {
                       className="group flex items-center gap-3 w-full px-4 py-2 sm:py-1.5 rounded-lg bg-green-50 text-green-600 font-medium hover:bg-green-100 transition-all"
                     >
                       <Phone className="h-5 w-5 transition-transform group-hover:rotate-12" />
-                      <span>800-803-0203</span>
+                      <span>88610 09443</span>
                     </a>
                   </div>
 
                   {/* Request Pickup Button */}
-                  {!(location.pathname==='/about' || location.pathname==='/stories' || location.pathname==='/epr-policy' || location.pathname==='/collaboration' || location.pathname==='/products') && (
-                    <div className="px-6 py-3 sm:py-2">
-                      <a
-                        onClick={() => setMobileMenuOpen(false)}
-                        href="#request-pickup"
-                        className="block w-full text-center bg-green-600 px-4 py-2 sm:py-1.5 rounded-lg text-base sm:text-sm font-semibold text-white hover:bg-green-500 transition-all"
-                      >
-                        Request Pickup
-                      </a>
-                    </div>
-                  )}
+                  <div className="px-6 py-3 sm:py-2 border-b border-gray-100">
+                    <a
+                      onClick={() => setMobileMenuOpen(false)}
+                      href="#request-pickup"
+                      className="block w-full text-center bg-green-600 px-4 py-2 sm:py-1.5 rounded-lg text-base sm:text-sm font-semibold text-white hover:bg-green-500 transition-all mb-2"
+                    >
+                      Request Pickup
+                    </a>
+                  </div>
+                  
+                  {/* Request for Quote Button */}
+                  <div className="px-6 py-3 sm:py-2">
+                    <a
+                      onClick={() => setMobileMenuOpen(false)}
+                      href="mailto:team@eco-dispose.com?subject=Request for Quote"
+                      className="block w-full text-center bg-emerald-600 px-4 py-2 sm:py-1.5 rounded-lg text-base sm:text-sm font-semibold text-white hover:bg-emerald-500 transition-all"
+                    >
+                      Request for Quote
+                    </a>
+                  </div>
                 </nav>
               </div>
             </div>
