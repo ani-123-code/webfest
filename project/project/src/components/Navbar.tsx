@@ -134,12 +134,6 @@ export default function Navbar() {
           >
             <span className='flex items-center justify-center'>Request Pickup</span>
           </a>
-          <a
-            href="mailto:team@eco-dispose.com?subject=Request for Quote"
-            className="flex items-center gap-2 px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold shadow-sm hover:bg-emerald-500 transition-all hover:shadow-md active:shadow-sm"
-          >
-            <span className='flex items-center justify-center'>Request for Quote</span>
-          </a>
         </div>
       </nav>
       
@@ -241,24 +235,13 @@ export default function Navbar() {
                   </div>
 
                   {/* Request Pickup Button */}
-                  <div className="px-6 py-3 sm:py-2 border-b border-gray-100">
-                    <a
-                      onClick={() => setMobileMenuOpen(false)}
-                      href="#request-pickup"
-                      className="block w-full text-center bg-green-600 px-4 py-2 sm:py-1.5 rounded-lg text-base sm:text-sm font-semibold text-white hover:bg-green-500 transition-all mb-2"
-                    >
-                      Request Pickup
-                    </a>
-                  </div>
-                  
-                  {/* Request for Quote Button */}
                   <div className="px-6 py-3 sm:py-2">
                     <a
                       onClick={() => setMobileMenuOpen(false)}
-                      href="mailto:team@eco-dispose.com?subject=Request for Quote"
-                      className="block w-full text-center bg-emerald-600 px-4 py-2 sm:py-1.5 rounded-lg text-base sm:text-sm font-semibold text-white hover:bg-emerald-500 transition-all"
+                      href="#request-pickup"
+                      className="block w-full text-center bg-green-600 px-4 py-2 sm:py-1.5 rounded-lg text-base sm:text-sm font-semibold text-white hover:bg-green-500 transition-all"
                     >
-                      Request for Quote
+                      Request Pickup
                     </a>
                   </div>
                 </nav>

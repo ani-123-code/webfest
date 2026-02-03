@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import ecodisposeLogo from '../assets/footer-logos/logo_full_light.png'
+import grkmsLogo from '../assets/footer-logos/GRKMS - LOGO  - vertical.png'
 import NewsletterSubscription from './NewsletterSubscription';
 import { API_ENDPOINTS } from '../config/api';
 
@@ -63,20 +64,15 @@ export default function Footer() {
             {/* GRKMS Logo */}
             <div className="text-center">
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl flex items-center justify-center">
-                <Recycle className="w-32 h-32 text-green-500" />
+                <img 
+                  src={grkmsLogo} 
+                  alt="GRKMS Logo" 
+                  className="h-32 object-contain"
+                />
               </div>
               <p className="mt-4 text-lg font-semibold">GRKMS</p>
               <p className="text-sm text-gray-400">Recycling Technology Partner</p>
             </div>
-          </div>
-          <div className="text-center mt-8">
-            <Link
-              to="/collaboration"
-              className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors"
-            >
-              Learn more about our partnership
-              <span className="text-xl">→</span>
-            </Link>
           </div>
         </div>
       </div>

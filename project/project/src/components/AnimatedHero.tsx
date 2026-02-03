@@ -101,7 +101,7 @@ export default function AnimatedHero() {
   }, []);
 
   return (
-    <div className="relative h-screen">
+    <div className="relative h-screen min-h-[600px] sm:min-h-[700px] md:h-screen">
 
       {/* Background Images */}
       {images.map((image, index) => (
@@ -124,30 +124,30 @@ export default function AnimatedHero() {
       <div className="relative z-20 h-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-6 md:mb-8 px-4">
               <span className={`block transition-all duration-500 ${
                 isTransitioning ? 'opacity-0 transform -translate-y-4' : 'opacity-100 transform translate-y-0'
               }`}>
                 {images[currentImage].title}
               </span>
             </h1>
-            <p className={`mt-3 max-w-md mx-auto text-base text-gray-200 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl transition-all duration-500 ${
+            <p className={`mt-2 sm:mt-3 max-w-md mx-auto text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 px-4 md:max-w-3xl transition-all duration-500 ${
               isTransitioning ? 'opacity-0 transform translate-y-4' : 'opacity-100 transform translate-y-0'
             }`}>
               {images[currentImage].description}
             </p>
 
             {/* Action Buttons */}
-            <div className="mt-10 flex gap-x-6 justify-center">
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 sm:gap-x-6 justify-center items-center">
               <a
                 href="#request-pickup"
-                className="rounded-md bg-green-600 px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 animate-pulse"
+                className="w-full sm:w-auto rounded-md bg-green-600 px-6 py-3 text-base sm:text-lg font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 animate-pulse text-center"
               >
                 Schedule Pickup
               </a>
               <a
                 href="#services"
-                className="rounded-md bg-white/10 backdrop-blur-sm px-6 py-3 text-lg font-semibold text-white shadow-sm ring-1 ring-inset ring-white/20 hover:bg-white/20 transition-colors"
+                className="w-full sm:w-auto rounded-md bg-white/10 backdrop-blur-sm px-6 py-3 text-base sm:text-lg font-semibold text-white shadow-sm ring-1 ring-inset ring-white/20 hover:bg-white/20 transition-colors text-center"
               >
                 Our Services
               </a>
@@ -155,7 +155,7 @@ export default function AnimatedHero() {
           </div>
 
           {/* Animated Stats */}
-          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-4">
+          <div className="mt-8 sm:mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 px-4">
             {stats.map((stat, index) => (
               <AnimatedStat key={stat.label} stat={stat} index={index} />
             ))}
