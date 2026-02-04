@@ -98,7 +98,7 @@ export default function Corporate() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-green-950 via-green-900 to-green-950 py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
@@ -173,7 +173,7 @@ export default function Corporate() {
       </div>
 
       {/* Benefits Section */}
-      <div className="bg-gradient-to-br from-green-950 via-green-900 to-green-950 py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 right-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 left-10 w-40 h-40 bg-green-500 rounded-full blur-3xl"></div>
@@ -266,7 +266,7 @@ export default function Corporate() {
       </div>
 
       {/* Industries Section */}
-      <div className=" bg-gradient-to-br from-white via-green-50 to-emerald-50 py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
@@ -276,13 +276,13 @@ export default function Corporate() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 relative">
             <div className="inline-block">
-              <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-green-950 mb-2 relative">
+              <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-white mb-2 relative">
                 Industries 
-                <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent"> We Serve</span>
+                <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"> We Serve</span>
               </h2>
               <div className="h-1 w-32 bg-gradient-to-r from-green-400 to-emerald-400 mx-auto rounded-full"></div>
             </div>
-            <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed">
               Specialized solutions tailored for various sectors
             </p>
           </div>
@@ -291,7 +291,7 @@ export default function Corporate() {
             {industries.map((industry, index) => (
               <div
                 key={industry.title}
-                className="group bg-gradient-to-br from-green-900 via-green-900 to-green-950 bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-green-400/20 hover:border-green-400/40"
+                className="group bg-gradient-to-br from-black via-gray-900 to-black bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-700 hover:border-gray-600"
                 style={{
                   animationDelay: `${index * 100}ms`
                 }}

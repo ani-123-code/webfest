@@ -3,7 +3,7 @@ import ServiceCard from './ServiceCard';
 
 export default function Services() {
   return (
-    <div className="bg-gradient-to-br from-green-950 via-green-900 to-green-950 py-20 relative overflow-hidden" id="services">
+    <div className="bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden" id="services">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>

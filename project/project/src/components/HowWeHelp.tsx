@@ -97,7 +97,7 @@ export default function HowWeHelp() {
         </div>
 
         {/* CTA */}
-        <div className="relative overflow-hidden bg-green-950 rounded-3xl p-12 text-center">
+        <div className="relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black rounded-3xl p-12 text-center">
           <div className="absolute inset-0 opacity-10">
             <div
               className="absolute inset-0"

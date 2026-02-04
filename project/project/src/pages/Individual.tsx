@@ -84,7 +84,7 @@ export default function Individual() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-green-950 via-green-900 to-green-950 py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
@@ -159,7 +159,7 @@ export default function Individual() {
       </div>
 
       {/* What We Accept */}
-      <div className="bg-gradient-to-br from-green-950 via-green-900 to-green-950 py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 right-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 left-10 w-40 h-40 bg-green-500 rounded-full blur-3xl"></div>

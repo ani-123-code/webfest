@@ -80,7 +80,7 @@ export default function EPRPolicy() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-green-950 via-green-900 to-green-950 py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
@@ -129,7 +129,7 @@ export default function EPRPolicy() {
       </div>
 
       {/* Timeline Section */}
-      <div className="bg-gradient-to-br from-green-950 via-green-900 to-green-950 py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 right-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 left-10 w-40 h-40 bg-green-500 rounded-full blur-3xl"></div>
@@ -268,15 +268,15 @@ export default function EPRPolicy() {
       </div>
 
       {/* Certification Section */}
-      <div className=" bg-emerald-50 py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-40 h-40 bg-green-500 rounded-full blur-3xl"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="group bg-gradient-to-br from-green-950 via-green-900 to-green-950 bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-green-400/20 hover:border-green-400/40 transition-all duration-500">
-            <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 to-emerald-400/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="group bg-gradient-to-br from-black via-gray-900 to-black bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-gray-700 hover:border-gray-600 transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-700/10 to-gray-800/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
             <div className=" relative z-10 max-w-4xl mx-auto text-center">
               <div className="inline-block mb-6">

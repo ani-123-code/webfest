@@ -25,7 +25,7 @@ const values = [
 
 export default function CompanyValues() {
   return (
-    <div className=" bg-emerald-50 py-20 relative overflow-hidden">
+    <div className="bg-gradient-to-br from-black via-gray-900 to-black py-20 relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 right-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-40 h-40 bg-green-500 rounded-full blur-3xl"></div>
@@ -34,13 +34,13 @@ export default function CompanyValues() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 relative">
           <div className="inline-block">
-            <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-green-950 mb-2 relative">
+            <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-white mb-2 relative">
               Our 
-              <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent"> Values</span>
+              <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"> Values</span>
             </h2>
             <div className="h-1 w-32 bg-gradient-to-r from-green-400 to-emerald-400 mx-auto rounded-full"></div>
           </div>
-          <p className="mt-6 text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed">
             Core principles that guide our mission
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function CompanyValues() {
           {values.map((value, index) => (
             <div
               key={value.title}
-              className="group bg-gradient-to-br from-green-950 via-green-900 to-green-950 relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-green-400/20 hover:border-green-400/40 transition-all duration-500"
+              className="group bg-gradient-to-br from-black via-gray-900 to-black relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-500"
               style={{
                 animationDelay: `${index * 100}ms`
               }}
