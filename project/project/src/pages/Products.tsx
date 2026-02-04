@@ -98,7 +98,7 @@ const products: Product[] = [
     icon: ShoppingCart,
     gradient: 'from-green-700 to-emerald-700',
     color: 'green',
-    website: 'https://ecomarketplace.eco-dispose.com',
+    website: 'https://ecomarketplace.eco-dispose.com/eco-home',
     features: [
       { title: 'Curated Listings', description: `Hand-selected products, machinery, and software from trusted suppliers, complete with detailed descriptions and certifications` },
       { title: 'Search and Filter Tools', description: `Advanced search capabilities to easily find items by category, material type, origin, or specifications` },
@@ -249,7 +249,7 @@ const products: Product[] = [
 ];
 
 // Product Modal Component
-function ProductModal({ product, isOpen, onClose }: { product: Product | null; isOpen: boolean; onClose: () => void }) {
+function ProductModal({ product, isOpen, onClose, setShowComingSoon }: { product: Product | null; isOpen: boolean; onClose: () => void; setShowComingSoon: (show: boolean) => void }) {
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add('overflow-hidden');
@@ -406,7 +406,7 @@ function ProductModal({ product, isOpen, onClose }: { product: Product | null; i
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-gray-200">
-            {product.id === 'reeown' ? (
+            {product.id === 'reeown' || product.id === 'eco-marketplace' ? (
               <a
                 href={product.website}
                 target="_blank"
@@ -518,7 +518,7 @@ export default function Products() {
                         Learn More
                         <ArrowRight className="h-4 w-4" />
                       </button>
-                      {product.id === 'reeown' ? (
+                      {product.id === 'reeown' || product.id === 'eco-marketplace' ? (
                         <a
                           href={product.website}
                           target="_blank"
@@ -571,6 +571,7 @@ export default function Products() {
           setIsModalOpen(false);
           setSelectedProduct(null);
         }}
+        setShowComingSoon={setShowComingSoon}
       />
 
       {/* Coming Soon Popup */}
