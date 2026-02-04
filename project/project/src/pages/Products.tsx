@@ -487,8 +487,8 @@ export default function Products() {
                   key={product.id}
                   className="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-green-100 hover:border-green-300 group"
                 >
-                  <div className="bg-gradient-to-br from-black via-gray-900 to-black p-8 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-700/10 to-gray-800/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="bg-gradient-to-br from-green-950 via-green-900 to-black p-8 text-white relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="relative z-10">
                       <h3 className="text-2xl font-bold mb-2">{product.name}</h3>
                       <p className="text-white/90 text-sm">{product.tagline}</p>
