@@ -41,11 +41,11 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur-md">
-      <nav className="flex items-center justify-between p-6 xl:px-8" aria-label="Global">
+      <nav className="flex items-center justify-between p-3 sm:p-4 md:p-5 lg:p-6 xl:px-8" aria-label="Global">
         <div className="flex xl:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5 flex items-center gap-2">
-            <img className="h-10 " src={logoLight} alt="" />
-            <img className="h-5 " src={EcodisposeLight} alt="" />
+          <Link to="/" className="-m-1.5 p-1.5 flex items-center gap-1 sm:gap-2">
+            <img className="h-7 sm:h-8 md:h-9 lg:h-10" src={logoLight} alt="" />
+            <img className="h-3.5 sm:h-4 md:h-4.5 lg:h-5" src={EcodisposeLight} alt="" />
           </Link>
         </div>
         <div className="flex xl:hidden">
@@ -55,18 +55,18 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Menu className="h-6 w-6" aria-hidden="true" />
+            <Menu className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden xl:flex lg:gap-x-12 items-center">
+        <div className="hidden xl:flex lg:gap-x-8 xl:gap-x-12 items-center">
           {navigation.map((item) => (
             <Link
               key={item.name}
               to={item.href}
-              className={`text-sm font-semibold leading-6 ${
+              className={`text-xs xl:text-sm font-semibold leading-6 whitespace-nowrap ${
                 location.pathname === item.href
                   ? item.name === 'Products' 
-                    ? 'text-green-600 bg-green-50 px-3 py-1.5 rounded-lg font-bold'
+                    ? 'text-green-600 bg-green-50 px-2 xl:px-3 py-1 xl:py-1.5 rounded-lg font-bold'
                     : 'text-green-600'
                   : 'text-gray-900 hover:text-green-600'
               }`}
@@ -79,7 +79,7 @@ export default function Navbar() {
           <div className="relative" ref={dropdownRef}>
             <button
               type="button"
-              className={`flex items-center gap-1 text-sm font-semibold leading-6 ${
+              className={`flex items-center gap-1 text-xs xl:text-sm font-semibold leading-6 whitespace-nowrap ${
                 location.pathname === '/about' || location.pathname === '/collaboration' || location.pathname === '/stories'
                   ? 'text-green-600'
                   : 'text-gray-900 hover:text-green-600'
@@ -88,7 +88,7 @@ export default function Navbar() {
               onMouseEnter={() => setDropdownOpen(true)}
             >
               More
-              <ChevronDown className={`h-4 w-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`h-3.5 w-3.5 xl:h-4 xl:w-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
             </button>
             
             {dropdownOpen && (
@@ -118,19 +118,20 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Action Buttons */}
-        <div className="hidden xl:flex xl:flex-1 xl:justify-end items-center gap-4">
+        <div className="hidden xl:flex xl:flex-1 xl:justify-end items-center gap-2 xl:gap-3">
           <a
             href="https://wa.me/918861009443"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 px-4 py-2 mx-2 rounded-full bg-green-50 text-green-600 font-medium hover:bg-green-100 transition-all"
+            className="group flex items-center gap-1.5 px-2.5 py-1.5 xl:px-3 xl:py-2 rounded-full bg-green-50 text-green-600 text-xs xl:text-sm font-medium hover:bg-green-100 transition-all"
           >
-            <Phone className="h-4 w-4 transition-transform group-hover:rotate-12" />
-            <span>Contact Us</span>
+            <Phone className="h-3.5 w-3.5 xl:h-4 xl:w-4 transition-transform group-hover:rotate-12" />
+            <span className="hidden 2xl:inline">Contact Us</span>
+            <span className="2xl:hidden">Contact</span>
           </a>
           <a
             href="#request-pickup"
-            className="flex items-center gap-2 px-5 py-2.5 bg-green-600 text-white rounded-full font-semibold shadow-sm hover:bg-green-500 transition-all hover:shadow-md active:shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 xl:px-3.5 xl:py-2 bg-green-600 text-white text-xs xl:text-sm rounded-full font-semibold shadow-sm hover:bg-green-500 transition-all hover:shadow-md active:shadow-sm"
           >
             <span className='flex items-center justify-center'>Request Pickup</span>
           </a>
@@ -224,22 +225,22 @@ export default function Navbar() {
                   </div>
                   
                   {/* Contact Button */}
-                  <div className="px-6 py-3 sm:py-2 border-b border-gray-100">
+                  <div className="px-4 sm:px-6 py-2 sm:py-2.5 border-b border-gray-100">
                     <a
                       href="tel:88610094433"
-                      className="group flex items-center gap-3 w-full px-4 py-2 sm:py-1.5 rounded-lg bg-green-50 text-green-600 font-medium hover:bg-green-100 transition-all"
+                      className="group flex items-center gap-2 w-full px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg bg-green-50 text-green-600 text-sm font-medium hover:bg-green-100 transition-all"
                     >
-                      <Phone className="h-5 w-5 transition-transform group-hover:rotate-12" />
+                      <Phone className="h-4 w-4 transition-transform group-hover:rotate-12" />
                       <span>88610 09443</span>
                     </a>
                   </div>
 
                   {/* Request Pickup Button */}
-                  <div className="px-6 py-3 sm:py-2">
+                  <div className="px-4 sm:px-6 py-2 sm:py-2.5">
                     <a
                       onClick={() => setMobileMenuOpen(false)}
                       href="#request-pickup"
-                      className="block w-full text-center bg-green-600 px-4 py-2 sm:py-1.5 rounded-lg text-base sm:text-sm font-semibold text-white hover:bg-green-500 transition-all"
+                      className="block w-full text-center bg-green-600 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg text-sm font-semibold text-white hover:bg-green-500 transition-all"
                     >
                       Request Pickup
                     </a>

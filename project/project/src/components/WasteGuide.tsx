@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { Recycle, Shield, Package2, Battery } from 'lucide-react';
 
 const categories = [
   {
     title: "Identify E-Waste",
-    icon: Recycle,
     items: [
       "Computers & Laptops: Desktops, monitors, keyboards, mice, and cables",
       "Mobile Phones: Smartphones, basic phones, and accessories like headphones and chargers",
@@ -20,7 +18,6 @@ const categories = [
   },
   {
     title: "Safe Storage",
-    icon: Package2,
     items: [
       "Use Original Packaging: Reuse boxes and foam inserts for safe transportation",
       "Keep in Dry Area: Avoid places with high humidity or the potential for water leakage",
@@ -33,7 +30,6 @@ const categories = [
   },
   {
     title: "Data Security",
-    icon: Shield,
     items: [
       "Back-Up Important Data: Use cloud storage or external drives to save data",
       "Perform a Factory Reset: Restore devices to factory settings to delete personal information",
@@ -46,7 +42,6 @@ const categories = [
   },
   {
     title: "Battery Handling",
-    icon: Battery,
     items: [
       "Keep in Cool Place: Store in a cool, dry area away from heat sources",
       "Avoid Metal Contact: Prevent short circuits by ensuring terminals don't touch metals",
@@ -95,7 +90,7 @@ export default function WasteGuide() {
               <div
                 key={category.title}
                 onClick={() => toggleCard(category.title)}
-                className={`group relative bg-gradient-to-br from-green-950 via-green-900 to-green-950 rounded-2xl overflow-hidden border border-gray-800 transition-all duration-500 hover:border-green-500/50 hover:shadow-2xl hover:shadow-green-500/10 cursor-pointer font-light ${
+                className={`group relative bg-gradient-to-br from-black via-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 transition-all duration-500 hover:border-green-500/50 hover:shadow-2xl hover:shadow-green-500/10 cursor-pointer font-light ${
                   isExpanded ? 'h-auto' : 'h-[20rem]'
                 }`}
               >
@@ -110,12 +105,6 @@ export default function WasteGuide() {
                 >
                   {/* Header */}
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-green-500 rounded-lg blur opacity-30 group-hover:opacity-60 transition-opacity"></div>
-                      <div className="relative p-2 rounded-lg  text-white">
-                        <category.icon className="h-5 w-5" />
-                      </div>
-                    </div>
                     <h3 className="text-lg font-bold text-green-400 transition-colors">
                       {category.title}
                     </h3>
