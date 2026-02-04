@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Handshake, Facebook, Instagram, Twitter, Recycle } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Handshake, Facebook, Instagram, Recycle, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
@@ -133,17 +133,22 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/profile.php?id=61574007071429" target='_blank' className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=61574007071429" target='_blank' rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="https://x.com/Eco_Dispose" target='_blank' className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="h-6 w-6" />
+              <a href="https://x.com/Eco_Dispose" target='_blank' rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
               </a>
-              <a href="https://www.linkedin.com/company/clenrgy-eco-dispose-india-llp" target='_blank' className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/company/clenrgy-eco-dispose-india-llp" target='_blank' rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Linkedin className="h-6 w-6" />
               </a>
-              <a href="https://www.instagram.com/clenrgy_eco_dispose/" target='_blank' className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.instagram.com/clenrgy.eco.dispose" target='_blank' rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Instagram className="h-6 w-6" />
+              </a>
+              <a href="https://www.youtube.com/@EcoDispose" target='_blank' rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <Youtube className="h-6 w-6" />
               </a>
             </div>
           </div>
