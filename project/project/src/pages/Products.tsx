@@ -440,7 +440,7 @@ export default function Products() {
   return (
     <div className="min-h-screen bg-white pt-20">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+      <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
@@ -459,18 +459,6 @@ export default function Products() {
               Comprehensive solutions for sustainable waste management, circular economy, and environmental responsibility. 
               Empowering businesses and communities to create a greener future.
             </p>
-            <div className="mt-8 pt-6 border-t border-green-400/20">
-              <p className="text-gray-300 mb-2 text-sm">
-                For any demo inquiries, please contact us at:
-              </p>
-              <a
-                href="mailto:team@eco-dispose.com"
-                className="text-green-400 hover:text-green-300 font-semibold text-lg transition-colors inline-flex items-center gap-2"
-              >
-                team@eco-dispose.com
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -541,6 +529,19 @@ export default function Products() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Request for Demo Button */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-green-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto text-center">
+          <a
+            href="mailto:team@eco-dispose.com?subject=Request Demo - Product Inquiry"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg font-semibold hover:from-green-500 hover:to-emerald-500 transition-all shadow-lg hover:shadow-xl"
+          >
+            Request for Demo
+            <ArrowRight className="h-5 w-5" />
+          </a>
         </div>
       </section>
 
