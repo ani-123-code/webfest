@@ -135,7 +135,7 @@ const products: Product[] = [
     icon: Gavel,
     gradient: 'from-green-500 to-green-700',
     color: 'green',
-    website: 'https://ecotrade.eco-dispose.com',
+    website: 'https://ecotrade.eco-dispose.com/',
     features: [
       { title: 'Real-Time Bidding', description: `Engage in live auctions with instant updates and competitive bidding to secure the best deals` },
       { title: 'Material Categorization', description: `Easily classify and search for waste by type, such as electronics, plastics, metals, or textiles, for precise matching` },
@@ -178,7 +178,7 @@ const products: Product[] = [
     icon: Users,
     gradient: 'from-emerald-600 to-green-600',
     color: 'green',
-    website: 'https://ecocaptian.eco-dispose.com',
+    website: 'https://ecocaptian.eco-dispose.com/',
     features: [
       { title: 'Captain Dashboard', description: `A user-friendly interface for captains to track collections, manage community members, and monitor progress` },
       { title: 'Community Engagement Tools', description: `Resources like messaging, event planners, and educational content to boost participation and awareness` },
@@ -406,7 +406,7 @@ function ProductModal({ product, isOpen, onClose, setShowComingSoon }: { product
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-gray-200">
-            {product.id === 'reeown' || product.id === 'eco-marketplace' ? (
+            {product.id === 'reeown' || product.id === 'eco-marketplace' || product.id === 'eco-trade' || product.id === 'eco-captain' ? (
               <a
                 href={product.website}
                 target="_blank"
@@ -518,7 +518,7 @@ export default function Products() {
                         Learn More
                         <ArrowRight className="h-4 w-4" />
                       </button>
-                      {product.id === 'reeown' || product.id === 'eco-marketplace' ? (
+                      {product.id === 'reeown' || product.id === 'eco-marketplace' || product.id === 'eco-trade' || product.id === 'eco-captain' ? (
                         <a
                           href={product.website}
                           target="_blank"
