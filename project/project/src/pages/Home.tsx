@@ -8,6 +8,7 @@ import CommunityPrograms from '../components/CommunityPrograms';
 import CollectionCategories from '../components/CollectionCategories';
 import RecyclingPrinciples from '../components/RecyclingPrinciples';
 import WasteGuide from '../components/WasteGuide';
+import ProductsWeHave from '../components/ProductsWeHave';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <div className="pt-20 sm:pt-24 md:pt-0">
         <AnimatedHero />
       </div>
+      <ProductsWeHave />
       <RecyclingPrinciples/>
       <WasteGuide/>
       <CollectionCategories />

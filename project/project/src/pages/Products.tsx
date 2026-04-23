@@ -36,7 +36,8 @@ interface Product {
   icon: any;
   gradient: string;
   color: string;
-  website: string;
+  website?: string;
+  comingSoon?: boolean;
   features: string[] | { title: string; description: string }[];
   howItWorks: { step: string; title: string; description: string }[];
   benefits: { title: string; description: string }[];
@@ -214,7 +215,7 @@ const products: Product[] = [
     icon: MapPin,
     gradient: 'from-green-600 to-emerald-500',
     color: 'green',
-    website: 'https://ecotrace.eco-dispose.com',
+    comingSoon: true,
     features: [
       { title: 'Product Registry', description: `Secure database for brands to upload and manage product details, including materials and lifecycle data` },
       { title: 'User Scanning', description: `Easy activation via QR codes or RFID tags for consumers to link products to their app accounts` },
@@ -406,7 +407,7 @@ function ProductModal({ product, isOpen, onClose, setShowComingSoon }: { product
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-gray-200">
-            {product.id === 'reeown' || product.id === 'eco-marketplace' || product.id === 'eco-trade' || product.id === 'eco-captain' ? (
+            {!product.comingSoon && product.website ? (
               <a
                 href={product.website}
                 target="_blank"
@@ -518,7 +519,7 @@ export default function Products() {
                         Learn More
                         <ArrowRight className="h-4 w-4" />
                       </button>
-                      {product.id === 'reeown' || product.id === 'eco-marketplace' || product.id === 'eco-trade' || product.id === 'eco-captain' ? (
+                      {!product.comingSoon && product.website ? (
                         <a
                           href={product.website}
                           target="_blank"
