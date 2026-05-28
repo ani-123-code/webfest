@@ -1,4 +1,4 @@
-import { ArrowRight, Building2, Recycle, Users } from 'lucide-react';
+import { Building2, Users } from 'lucide-react';
 
 export default function Hero() {
   return (

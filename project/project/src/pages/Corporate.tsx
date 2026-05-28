@@ -246,7 +246,7 @@ export default function Corporate() {
             {/* Connection lines for desktop */}
             <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-green-300 to-transparent"></div>
             
-            {processSteps.map((step, index) => (
+            {processSteps.map((step) => (
               <div key={step.title} className="text-center group relative z-10">
                 <div className="mb-6">
                   <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-full p-4 inline-flex shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 relative z-10">

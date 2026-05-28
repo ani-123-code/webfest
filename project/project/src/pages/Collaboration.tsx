@@ -1,6 +1,5 @@
-import { Building2, Award, Recycle, Users, BookOpen, Heart, Play, TreeDeciduous, Lightbulb, GraduationCap, Handshake, ArrowRight, ChevronRight, Shield, FileCheck, Scale, Leaf } from 'lucide-react';
+import { Building2, Award, Recycle, Users, Heart, Play, Handshake, Shield, FileCheck, Scale, Leaf } from 'lucide-react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import leaderImage from '../assets/leadership/image.png'
 import facilityCollabImage from '../assets/facility-collabSection/jjaowoFfALv03wdj-generated_image.jpg'
 
@@ -180,7 +179,7 @@ export default function Collaboration() {
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {upcomingInitiatives.map((initiative, index) => (
+                    {upcomingInitiatives.map((initiative) => (
                       <div key={initiative.title} className="group bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-green-400/20 hover:border-green-400/40 transition-all duration-500">
                         <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 to-emerald-400/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         
@@ -338,7 +337,7 @@ export default function Collaboration() {
                     icon: Scale,
                     description: "Pollution Control Board"
                   }
-                ].map((cert, index) => (
+                ].map((cert) => (
                   <div key={cert.title} className="group bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-green-100 hover:border-green-300 transition-all duration-500 hover:shadow-xl p-8">
                     <div className="relative">
                       <div className="flex items-center justify-center mb-6">
@@ -392,7 +391,7 @@ export default function Collaboration() {
                         title: "Resource Recovery",
                         description: "Maximum resource recovery with minimal environmental impact"
                       }
-                    ].map((step, index) => (
+                    ].map((step) => (
                       <div key={step.title} className="group bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border border-green-200 hover:border-green-300 transition-all duration-300 hover:shadow-lg">
                         <h3 className="font-bold mb-3 text-green-700 text-xl group-hover:text-green-800 transition-colors duration-300">{step.title}</h3>
                         <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">{step.description}</p>
@@ -410,7 +409,7 @@ export default function Collaboration() {
                   { value: "50K+", label: "Devices Monthly" },
                   { value: "24/7", label: "Operation" },
                   { value: "15+", label: "Processing Lines" }
-                ].map((stat, index) => (
+                ].map((stat) => (
                   <div key={stat.label} className="group bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg text-center border border-green-100 hover:border-green-300 transition-all duration-500 hover:shadow-xl transform hover:scale-105">
                     <div className="text-4xl font-black text-green-600 mb-3 group-hover:text-green-700 transition-colors duration-300">{stat.value}</div>
                     <div className="text-gray-600 font-semibold group-hover:text-gray-700 transition-colors duration-300">{stat.label}</div>

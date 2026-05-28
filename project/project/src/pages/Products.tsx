@@ -14,6 +14,7 @@ import {
   X,
   ExternalLink
 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 // Helper function to get color classes - all using green theme like About page
 const getColorClasses = () => {
@@ -33,7 +34,7 @@ interface Product {
   name: string;
   tagline: string;
   description: string;
-  icon: any;
+  icon: LucideIcon;
   gradient: string;
   color: string;
   website?: string;
@@ -478,7 +479,6 @@ export default function Products() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => {
-              const Icon = product.icon;
               const colorClasses = getColorClasses();
               return (
                 <div

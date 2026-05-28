@@ -1,32 +1,10 @@
-import { Mail, Phone, MapPin, Linkedin, Handshake, Facebook, Instagram, Recycle, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Handshake, Facebook, Instagram, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import axios from 'axios';
 import ecodisposeLogo from '../assets/footer-logos/logo_full_light.png'
 import grkmsLogo from '../assets/footer-logos/GRKMS - LOGO  - vertical.png'
 import NewsletterSubscription from './NewsletterSubscription';
-import { API_ENDPOINTS } from '../config/api';
 
 export default function Footer() {
-  const [input,setInput]=useState("")
-  const [message, setMessage] = useState('');
-  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Handle subscription logic here
-    // alert('Thank you for subscribing to our newsletter!');
-    const email=input
-    try {
-      const response= await axios.post(API_ENDPOINTS.ADD_SUBSCRIBERS, {email})
-      setMessage(response.data.message)
-      setInput("");
-      setTimeout(()=>{
-        setMessage("");
-      },3000)
-      
-    } catch (error) {
-      
-    }
-  };
   return (
     <footer className="bg-gray-900 text-white">
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Recycle, Leaf, Shield, Globe,TreePine } from 'lucide-react';
+import { Recycle, Leaf, Shield, TreePine } from 'lucide-react';
 
 const images = [
   {
@@ -29,11 +29,9 @@ const stats = [
 // Custom hook for animated counting
 function useCountUp(end, duration = 2000, delay = 0) {
   const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setHasStarted(true);
       let startTime;
       let animationFrame;
 

@@ -1,4 +1,4 @@
-import { Battery, Smartphone, Laptop, Cpu, MonitorCheck, Info } from 'lucide-react';
+import { Battery, Laptop, MonitorCheck, Info } from 'lucide-react';
 
 const guidelines = [
   {

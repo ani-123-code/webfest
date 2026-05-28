@@ -13,12 +13,14 @@ import Products from './pages/Products';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import Chatbot from './components/Chatbot';
+import RequestPickupPopup from './components/RequestPickupPopup';
 
 function App() {
   return (
     <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <div className="bg-white">
         <ScrollToTop/>
+        <RequestPickupPopup />
         <Routes>
           <Route
             path="/"

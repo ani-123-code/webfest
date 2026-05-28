@@ -1,21 +1,36 @@
+import type { ChangeEvent, ElementType, FormEvent } from 'react';
 import { useState } from 'react';
 import { Building2, Users } from 'lucide-react';
 import { API_ENDPOINTS } from '../config/api';
 
-export default function RequestPickup() {
+type RequestPickupProps = {
+  variant?: 'section' | 'modal';
+};
+
+type PickupFormData = {
+  company: string;
+  designation: string;
+  name: string;
+  address: string;
+  email: string;
+  phone: string;
+  description: string;
+};
+
+export default function RequestPickup({ variant = 'section' }: RequestPickupProps) {
   const [userType, setUserType] = useState<'individual' | 'corporate'>('individual');
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<PickupFormData>({
     company: '', designation: '', name: '', address: '', email: '', phone: '', description: '',
   });
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value } as PickupFormData));
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     try {
@@ -41,21 +56,22 @@ export default function RequestPickup() {
         try {
           const errorData = await response.json();
           errorMessage = errorData.message || errorData.error || errorMessage;
-        } catch (e) {
+        } catch {
           errorMessage = `Server error: ${response.status} ${response.statusText}`;
         }
         alert(errorMessage);
         return;
       }
 
-      const data = await response.json();
+      await response.json();
 
       // Clear form and show success
       setFormData({ company: "", designation: "", name: "", email: "", phone: "", address: "", description: "" });
       setShowPopup(true);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Form submission error:', error);
-      if (error.message?.includes('Failed to fetch')) {
+      const message = error instanceof Error ? error.message : '';
+      if (message.includes('Failed to fetch')) {
         alert('Cannot connect to server. Please make sure the backend is running on http://localhost:8000');
       } else {
         alert('Network error. Please check your connection and try again.');
@@ -67,12 +83,21 @@ export default function RequestPickup() {
 
   const closePopup = () => setShowPopup(false);
 
+  const Wrapper: ElementType = variant === 'modal' ? 'div' : 'section';
+  const wrapperProps =
+    variant === 'modal'
+      ? { className: 'w-full' }
+      : {
+          className: 'bg-gradient-to-br from-white via-green-50 to-emerald-50 py-24',
+          id: 'request-pickup',
+        };
+
   return (
-    <section className="bg-gradient-to-br from-white via-green-50 to-emerald-50 py-24" id="request-pickup">
+    <Wrapper {...wrapperProps}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className={variant === 'modal' ? 'text-center mb-8' : 'text-center mb-12'}>
           <h2 className="text-5xl font-black text-green-950 mb-3">
             Request a <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">Pickup</span>
           </h2>
@@ -88,7 +113,7 @@ export default function RequestPickup() {
             return (
               <button
                 key={type}
-                onClick={() => setUserType(type as any)}
+                onClick={() => setUserType(type)}
                 className={`flex items-center gap-2 px-5 py-3 rounded-2xl font-semibold text-sm transition-colors ${
                   userType === type
                     ? 'bg-green-600 text-white'
@@ -116,7 +141,7 @@ export default function RequestPickup() {
                   <input
                     id={name}
                     name={name}
-                    value={(formData as any)[name]}
+                    value={formData[name as keyof PickupFormData]}
                     required
                     onChange={handleChange}
                     className="mt-1 block w-full rounded-lg border-2 focus:outline-none border-gray-400 px-3 py-3 bg-white text-gray-900 shadow-sm focus:border-green-500 focus:ring-2 focus:ring-green-500"
@@ -141,7 +166,7 @@ export default function RequestPickup() {
                     id={name}
                     name={name}
                     type={name === 'email' ? 'email' : 'text'}
-                    value={(formData as any)[name]}
+                    value={formData[name as keyof PickupFormData]}
                     required
                     onChange={handleChange}
                     className="mt-1 block w-full rounded-lg border-2 border-gray-400 px-3 py-3 bg-white text-gray-900 shadow-sm focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500"
@@ -218,6 +243,6 @@ export default function RequestPickup() {
           </div>
         )}
       </div>
-    </section>
+    </Wrapper>
   );
 }

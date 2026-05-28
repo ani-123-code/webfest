@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calendar, Users, School, Building2, Award, ArrowRight } from 'lucide-react';
+import { Users, School, Building2, ArrowRight } from 'lucide-react';
 
 const programs = [
   {

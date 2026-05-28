@@ -83,7 +83,7 @@ export default function WasteGuide() {
 
         {/* Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {categories.map((category, index) => {
+          {categories.map((category) => {
             const isExpanded = expandedCard === category.title;
 
             return (

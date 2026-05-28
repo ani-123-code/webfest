@@ -1,5 +1,4 @@
 // import { Award } from 'lucide-react';
-import { useState } from 'react';
 import AboutHero from '../components/AboutHero';
 import MissionVision from '../components/MissionVision';
 import CompanyValues from '../components/CompanyValues';
@@ -42,7 +41,6 @@ import events18 from '../assets/gallery/stories/IMG_9926.jpg';
 import events19 from '../assets/gallery/stories/1749123436592.jpeg';
 import events20 from '../assets/gallery/stories/1749123436625.jpeg';
 import events21 from '../assets/gallery/stories/IMG_E0108.jpg';
-import events22 from '../assets/gallery/stories/1751791609519.jpeg';
 
 const galleryImages = [
   {
@@ -190,11 +188,6 @@ const galleryImages = [
     url: events21,
     category: 'events'
   },
-  // {
-  //   id: 30,
-  //   url: events22,
-  //   category: 'events'
-  // }
 
 ];
 
