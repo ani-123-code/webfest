@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eco-dispose.com/sitemap.xml
+

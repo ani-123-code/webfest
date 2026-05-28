@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import RequestPickup from './RequestPickup';
 
-const STORAGE_KEY = 'ecoweb:pickup_popup_dismissed:v1';
-
 type RequestPickupPopupProps = {
   delayMs?: number;
 };
@@ -11,15 +9,11 @@ export default function RequestPickupPopup({ delayMs = 3000 }: RequestPickupPopu
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const dismissed = localStorage.getItem(STORAGE_KEY) === '1';
-    if (dismissed) return;
-
     const t = window.setTimeout(() => setOpen(true), delayMs);
     return () => window.clearTimeout(t);
   }, [delayMs]);
 
   const close = () => {
-    localStorage.setItem(STORAGE_KEY, '1');
     setOpen(false);
   };
 

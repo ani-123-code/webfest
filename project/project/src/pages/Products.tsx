@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { 
   Smartphone, 
-  Gavel, 
   Users, 
-  MapPin, 
   CheckCircle2, 
   ArrowRight,
   TrendingUp,
@@ -129,49 +127,49 @@ const products: Product[] = [
       'Electronics and Manufacturing'
     ]
   },
-  {
-    id: 'eco-trade',
-    name: 'Eco Trade',
-    tagline: 'Secure Bidding Platform for E-Waste and Waste Materials',
-    description: `A robust, auction-style marketplace designed for trading e-waste and various waste materials, linking waste generators with buyers to achieve competitive pricing, ethical disposal, and sustainable recycling practices. Eco Trade is a secure online platform that facilitates real-time auctions for e-waste and other waste materials, ensuring safe, transparent, and compliant transactions. By connecting waste generators directly with buyers, we promote fair market values while prioritizing environmental responsibility and regulatory adherence. Our encrypted system safeguards all data and payments, making it a trusted choice for businesses seeking efficient waste management solutions. We cover a wide range of materials, including e-waste, FMCG waste, textiles, plastics, paper, industrial waste, and metals, empowering users to divert waste from landfills into valuable resources.`,
-    icon: Gavel,
-    gradient: 'from-green-500 to-green-700',
-    color: 'green',
-    website: 'https://ecotrade.eco-dispose.com/',
-    features: [
-      { title: 'Real-Time Bidding', description: `Engage in live auctions with instant updates and competitive bidding to secure the best deals` },
-      { title: 'Material Categorization', description: `Easily classify and search for waste by type, such as electronics, plastics, metals, or textiles, for precise matching` },
-      { title: 'Compliance Tools', description: `Built-in features for regulatory reporting, certifications, and adherence to environmental standards` },
-      { title: 'Logistics Integration', description: `Seamless coordination with shipping partners for efficient pickup, transport, and delivery` },
-      { title: 'Analytics Dashboard', description: `Gain insights into market trends, bidding history, and performance metrics to inform decisions` },
-      { title: 'Secure Escrow', description: `Protected payment system that holds funds until transactions are verified and completed, ensuring trust and security` }
-    ],
-    howItWorks: [
-      { step: '1', title: 'List Waste', description: `Sellers register securely, upload detailed descriptions, photos, quantity, and set starting bids for their materials` },
-      { step: '2', title: 'Auction Launch', description: `Configure auction duration, reserve prices, and visibility to attract the right buyers` },
-      { step: '3', title: 'Bidding Phase', description: `Buyers participate in real-time bidding; the platform notifies participants of updates, with the highest bid winning at close` },
-      { step: '4', title: 'Transaction Closure', description: `Finalize with secure payment release from escrow, arrange logistics for pickup, and generate compliance reports for all parties` }
-    ],
-    benefits: [
-      { title: 'Maximized Value', description: `Auction dynamics drive competitive pricing, often yielding higher returns for sellers compared to traditional fixed-price models` },
-      { title: 'Efficiency', description: `Streamline the process of finding buyers or sellers, saving time and resources through our intuitive, secure interface` },
-      { title: 'Sustainability', description: `Encourage recycling and reuse of materials like plastics, metals, and e-waste, reducing landfill contributions and supporting circular economies` },
-      { title: 'Transparency and Security', description: `Every transaction is auditable, with end-to-end encryption and escrow protection for regulatory compliance and peace of mind` }
-    ],
-    industries: [
-      'Waste Management and Recycling',
-      'Electronics and ITAD (IT Asset Disposition)',
-      'Manufacturing and Industrial',
-      'Government and Energy',
-      'Construction and Commodities',
-      'FMCG (Fast-Moving Consumer Goods)',
-      'Textiles',
-      'Plastics',
-      'Paper',
-      'E-Waste Processing',
-      'Metal Scrap and Recovery'
-    ]
-  },
+  // {
+  //   id: 'eco-trade',
+  //   name: 'Eco Trade',
+  //   tagline: 'Secure Bidding Platform for E-Waste and Waste Materials',
+  //   description: `A robust, auction-style marketplace designed for trading e-waste and various waste materials, linking waste generators with buyers to achieve competitive pricing, ethical disposal, and sustainable recycling practices. Eco Trade is a secure online platform that facilitates real-time auctions for e-waste and other waste materials, ensuring safe, transparent, and compliant transactions. By connecting waste generators directly with buyers, we promote fair market values while prioritizing environmental responsibility and regulatory adherence. Our encrypted system safeguards all data and payments, making it a trusted choice for businesses seeking efficient waste management solutions. We cover a wide range of materials, including e-waste, FMCG waste, textiles, plastics, paper, industrial waste, and metals, empowering users to divert waste from landfills into valuable resources.`,
+  //   icon: Gavel,
+  //   gradient: 'from-green-500 to-green-700',
+  //   color: 'green',
+  //   website: 'https://ecotrade.eco-dispose.com/',
+  //   features: [
+  //     { title: 'Real-Time Bidding', description: `Engage in live auctions with instant updates and competitive bidding to secure the best deals` },
+  //     { title: 'Material Categorization', description: `Easily classify and search for waste by type, such as electronics, plastics, metals, or textiles, for precise matching` },
+  //     { title: 'Compliance Tools', description: `Built-in features for regulatory reporting, certifications, and adherence to environmental standards` },
+  //     { title: 'Logistics Integration', description: `Seamless coordination with shipping partners for efficient pickup, transport, and delivery` },
+  //     { title: 'Analytics Dashboard', description: `Gain insights into market trends, bidding history, and performance metrics to inform decisions` },
+  //     { title: 'Secure Escrow', description: `Protected payment system that holds funds until transactions are verified and completed, ensuring trust and security` }
+  //   ],
+  //   howItWorks: [
+  //     { step: '1', title: 'List Waste', description: `Sellers register securely, upload detailed descriptions, photos, quantity, and set starting bids for their materials` },
+  //     { step: '2', title: 'Auction Launch', description: `Configure auction duration, reserve prices, and visibility to attract the right buyers` },
+  //     { step: '3', title: 'Bidding Phase', description: `Buyers participate in real-time bidding; the platform notifies participants of updates, with the highest bid winning at close` },
+  //     { step: '4', title: 'Transaction Closure', description: `Finalize with secure payment release from escrow, arrange logistics for pickup, and generate compliance reports for all parties` }
+  //   ],
+  //   benefits: [
+  //     { title: 'Maximized Value', description: `Auction dynamics drive competitive pricing, often yielding higher returns for sellers compared to traditional fixed-price models` },
+  //     { title: 'Efficiency', description: `Streamline the process of finding buyers or sellers, saving time and resources through our intuitive, secure interface` },
+  //     { title: 'Sustainability', description: `Encourage recycling and reuse of materials like plastics, metals, and e-waste, reducing landfill contributions and supporting circular economies` },
+  //     { title: 'Transparency and Security', description: `Every transaction is auditable, with end-to-end encryption and escrow protection for regulatory compliance and peace of mind` }
+  //   ],
+  //   industries: [
+  //     'Waste Management and Recycling',
+  //     'Electronics and ITAD (IT Asset Disposition)',
+  //     'Manufacturing and Industrial',
+  //     'Government and Energy',
+  //     'Construction and Commodities',
+  //     'FMCG (Fast-Moving Consumer Goods)',
+  //     'Textiles',
+  //     'Plastics',
+  //     'Paper',
+  //     'E-Waste Processing',
+  //     'Metal Scrap and Recovery'
+  //   ]
+  // },
   {
     id: 'eco-captain',
     name: 'Eco Captain',
@@ -208,46 +206,46 @@ const products: Product[] = [
       'Events and Zero-Waste Initiatives'
     ]
   },
-  {
-    id: 'eco-trace',
-    name: 'Eco Trace',
-    tagline: 'Product Lifecycle Tracking for Sustainability',
-    description: `A comprehensive app-based platform that enables end-to-end tracking of product lifecycles, from manufacturing to consumer usage and responsible return, fostering sustainability, accountability, and resource recovery for brands and users alike. Eco Trace is an innovative solution designed to monitor the entire journey of products, promoting eco-conscious practices across industries. Brands can customize the platform by simply connecting via our API to track their products seamlessly. Utilizing QR codes, RFID tags, and integrable kiosks or systems, it ensures precise tracking from production to end-of-life. Consumers activate products at purchase, log usage, and return them for rewards, while brands recover valuable materials, reduce waste, and save costs through efficient recycling and reuse. This customizable system empowers brands to enhance their sustainability efforts without complex overhauls.`,
-    icon: MapPin,
-    gradient: 'from-green-600 to-emerald-500',
-    color: 'green',
-    comingSoon: true,
-    features: [
-      { title: 'Product Registry', description: `Secure database for brands to upload and manage product details, including materials and lifecycle data` },
-      { title: 'User Scanning', description: `Easy activation via QR codes or RFID tags for consumers to link products to their app accounts` },
-      { title: 'Lifecycle Monitoring', description: `Real-time tracking of usage, repairs, and status updates throughout the product's life` },
-      { title: 'Return Incentives', description: `Reward systems for consumers returning products, with seamless integration for credits or refunds` },
-      { title: 'Analytics', description: `In-depth insights into product performance, usage patterns, and sustainability metrics for data-driven decisions` },
-      { title: 'Blockchain Security', description: `Tamper-proof records ensuring transparency and trust in all transactions and data` },
-      { title: 'API Integration and Customization', description: `Brands connect effortlessly via API for tailored tracking; add kiosks or external systems for enhanced functionality` }
-    ],
-    howItWorks: [
-      { step: '1', title: 'Brand Upload and Customization', description: `Manufacturers register products in the registry, input lifecycle data, and connect via API for custom tracking. Integrate QR codes, RFID, kiosks, or other systems as needed` },
-      { step: '2', title: 'Consumer Activation', description: `At purchase, users scan the QR code or RFID tag using the app to activate and link the product to their profile` },
-      { step: '3', title: 'Usage Tracking', description: `Throughout ownership, consumers log events like usage milestones or repairs; the platform monitors progress in real-time` },
-      { step: '4', title: 'Return Process', description: `When ready, users return the product to designated stores, brands, or kiosks for evaluation. Materials are recovered for recycling, and consumers receive incentives like credits` },
-      { step: '5', title: 'Material Recovery and Closure', description: `Brands reclaim reusable materials, saving costs on new resources, while the platform updates records for full end-to-end accountability` }
-    ],
-    benefits: [
-      { title: 'Consumer Rewards', description: `Users earn credits or incentives for responsible returns and sustainable behaviors, encouraging participation` },
-      { title: 'Brand Loyalty and Customization', description: `Boosts reputation through eco-friendly features; easy API integration allows brands to tailor the system to their needs` },
-      { title: 'Waste Reduction and Material Recovery', description: `Promotes returns over disposal, enabling brands to retrieve valuable materials and reduce manufacturing expenses` },
-      { title: 'Data-Driven Sustainability', description: `Provides actionable analytics to optimize product designs for durability and efficiency` },
-      { title: 'Cost Savings', description: `By recovering materials and streamlining lifecycles, brands minimize resource costs and enhance supply chain resilience` }
-    ],
-    industries: [
-      'Manufacturing and Electronics',
-      'Retail and Fashion',
-      'Packaging and Consumer Goods',
-      'Automotive',
-      'Waste Management'
-    ]
-  }
+  // {
+  //   id: 'eco-trace',
+  //   name: 'Eco Trace',
+  //   tagline: 'Product Lifecycle Tracking for Sustainability',
+  //   description: `A comprehensive app-based platform that enables end-to-end tracking of product lifecycles, from manufacturing to consumer usage and responsible return, fostering sustainability, accountability, and resource recovery for brands and users alike. Eco Trace is an innovative solution designed to monitor the entire journey of products, promoting eco-conscious practices across industries. Brands can customize the platform by simply connecting via our API to track their products seamlessly. Utilizing QR codes, RFID tags, and integrable kiosks or systems, it ensures precise tracking from production to end-of-life. Consumers activate products at purchase, log usage, and return them for rewards, while brands recover valuable materials, reduce waste, and save costs through efficient recycling and reuse. This customizable system empowers brands to enhance their sustainability efforts without complex overhauls.`,
+  //   icon: MapPin,
+  //   gradient: 'from-green-600 to-emerald-500',
+  //   color: 'green',
+  //   comingSoon: true,
+  //   features: [
+  //     { title: 'Product Registry', description: `Secure database for brands to upload and manage product details, including materials and lifecycle data` },
+  //     { title: 'User Scanning', description: `Easy activation via QR codes or RFID tags for consumers to link products to their app accounts` },
+  //     { title: 'Lifecycle Monitoring', description: `Real-time tracking of usage, repairs, and status updates throughout the product's life` },
+  //     { title: 'Return Incentives', description: `Reward systems for consumers returning products, with seamless integration for credits or refunds` },
+  //     { title: 'Analytics', description: `In-depth insights into product performance, usage patterns, and sustainability metrics for data-driven decisions` },
+  //     { title: 'Blockchain Security', description: `Tamper-proof records ensuring transparency and trust in all transactions and data` },
+  //     { title: 'API Integration and Customization', description: `Brands connect effortlessly via API for tailored tracking; add kiosks or external systems for enhanced functionality` }
+  //   ],
+  //   howItWorks: [
+  //     { step: '1', title: 'Brand Upload and Customization', description: `Manufacturers register products in the registry, input lifecycle data, and connect via API for custom tracking. Integrate QR codes, RFID, kiosks, or other systems as needed` },
+  //     { step: '2', title: 'Consumer Activation', description: `At purchase, users scan the QR code or RFID tag using the app to activate and link the product to their profile` },
+  //     { step: '3', title: 'Usage Tracking', description: `Throughout ownership, consumers log events like usage milestones or repairs; the platform monitors progress in real-time` },
+  //     { step: '4', title: 'Return Process', description: `When ready, users return the product to designated stores, brands, or kiosks for evaluation. Materials are recovered for recycling, and consumers receive incentives like credits` },
+  //     { step: '5', title: 'Material Recovery and Closure', description: `Brands reclaim reusable materials, saving costs on new resources, while the platform updates records for full end-to-end accountability` }
+  //   ],
+  //   benefits: [
+  //     { title: 'Consumer Rewards', description: `Users earn credits or incentives for responsible returns and sustainable behaviors, encouraging participation` },
+  //     { title: 'Brand Loyalty and Customization', description: `Boosts reputation through eco-friendly features; easy API integration allows brands to tailor the system to their needs` },
+  //     { title: 'Waste Reduction and Material Recovery', description: `Promotes returns over disposal, enabling brands to retrieve valuable materials and reduce manufacturing expenses` },
+  //     { title: 'Data-Driven Sustainability', description: `Provides actionable analytics to optimize product designs for durability and efficiency` },
+  //     { title: 'Cost Savings', description: `By recovering materials and streamlining lifecycles, brands minimize resource costs and enhance supply chain resilience` }
+  //   ],
+  //   industries: [
+  //     'Manufacturing and Electronics',
+  //     'Retail and Fashion',
+  //     'Packaging and Consumer Goods',
+  //     'Automotive',
+  //     'Waste Management'
+  //   ]
+  // }
 ];
 
 // Product Modal Component
